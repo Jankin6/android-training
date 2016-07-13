@@ -12,6 +12,7 @@
     android:orientation="vertical">
 
     <Button
+        android:id="@+id/btn_mvp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="mvp"/>
@@ -21,4 +22,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="GestureDetector"/>
+
+    <Button
+        android:id="@+id/btn_dagger"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="dagger"/>
+
+    <Button
+        android:id="@+id/btn_volley"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="volley"/>
 </LinearLayout>
