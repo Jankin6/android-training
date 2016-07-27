@@ -2,6 +2,7 @@ package com.wangjj.android_training.dagger.component;
 
 import android.content.Context;
 
+import com.wangjj.android_training.activities.BaseActivity;
 import com.wangjj.android_training.dagger.module.ApplicationModule;
 
 import javax.inject.Singleton;
@@ -15,4 +16,6 @@ import dagger.Component;
 @Component(modules = ApplicationModule.class)
 public interface ApplicationComponent {
     Context context();
+//    UserCache userCache();
+    void inject(BaseActivity baseActivity);
 }

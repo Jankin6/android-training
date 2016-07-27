@@ -1,7 +1,9 @@
 package com.wangjj.android_training.dagger.module;
 
-import android.app.Application;
 import android.content.Context;
+
+import com.wangjj.android_training.MyApplication;
+import com.wangjj.android_training.model.UserCache;
 
 import javax.inject.Singleton;
 
@@ -13,13 +15,18 @@ import dagger.Provides;
  */
 @Module
 public class ApplicationModule {
-    private Application application;
-    public ApplicationModule(Application application){
+    private MyApplication application;
+    public ApplicationModule(MyApplication application){
         this.application = application;
     }
 
     @Provides @Singleton
     Context provideApplicationContext(){
         return application;
+    }
+
+    @Provides @Singleton
+    UserCache provideUserCache(UserCache userCache){
+        return userCache;
     }
 }

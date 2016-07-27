@@ -4,9 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.wangjj.android_training.activities.DaggerActivity;
 import com.wangjj.android_training.activities.VolleyActivity;
+import com.wangjj.android_training.utils.AppUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -22,12 +24,16 @@ public class MainActivity extends AppCompatActivity {
     Button mBtnDagger;
     @BindView(R.id.btn_volley)
     Button mBtnVolley;
+    @BindView(R.id.tv_channel_name)
+    TextView mTvChannelName;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        mTvChannelName.setText(AppUtil.getApplicationMetaValue("UMENG_CHANNEL"));
     }
 
     @OnClick(R.id.btn_dagger)
@@ -36,7 +42,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @OnClick(R.id.btn_volley)
-    void onBtnVolleyClick(){
+    void onBtnVolleyClick() {
         startActivity(new Intent(this, VolleyActivity.class));
     }
+
 }
