@@ -3,13 +3,16 @@ import java.text.SimpleDateFormat
 apply plugin: 'com.android.application'
 apply plugin: 'com.neenbedankt.android-apt'
 
+Properties prop = new Properties();
+prop.load(new FileInputStream(file("../signing.properties")))
+
 android {
     signingConfigs {
         release {
-            keyAlias 'wangjj'
-            keyPassword '123456'
-            storeFile file('C:/Users/wangjj/Documents/android_training.jks')
-            storePassword '123456'
+            keyAlias prop['KEY_ALIAS']
+            keyPassword prop['KEY_PASSWORD']
+            storeFile file(prop['KEYSTORE_FILEPATH'])
+            storePassword prop['STORE_PASSWORD']
         }
     }
     compileSdkVersion 23
