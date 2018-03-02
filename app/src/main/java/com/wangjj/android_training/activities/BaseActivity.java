@@ -2,8 +2,9 @@ package com.wangjj.android_training.activities;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 
+import com.trello.rxlifecycle.components.support.RxAppCompatActivity;
 import com.wangjj.android_training.MyApplication;
 import com.wangjj.android_training.dagger.component.ApplicationComponent;
 import com.wangjj.android_training.dagger.module.ActivityModule;
@@ -11,7 +12,7 @@ import com.wangjj.android_training.dagger.module.ActivityModule;
 /**
  * Created by wangjj on 2016/7/13.
  */
-public abstract class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends RxAppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,5 +42,15 @@ public abstract class BaseActivity extends AppCompatActivity {
      */
     protected ActivityModule getActivityModule(){
         return new ActivityModule(this);
+    }
+
+    public void initToolBar(Toolbar toolbar, boolean homeAsUpEnabled, String title) {
+        toolbar.setTitle(title);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(homeAsUpEnabled);
+    }
+
+    public void initToolBar(Toolbar toolbar, boolean homeAsUpEnabled, int resTitle) {
+        initToolBar(toolbar, homeAsUpEnabled, getString(resTitle));
     }
 }

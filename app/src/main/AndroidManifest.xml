@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE"></uses-permission>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
 
     <application
         android:allowBackup="true"
@@ -21,8 +22,16 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".activities.DaggerActivity"/>
-        <activity android:name=".activities.VolleyActivity"/>
+        <activity android:name=".activities.DaggerActivity"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".activities.VolleyActivity"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".activities.ActivityPullToRefresh"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".activities.annotation.TestAnnotationActivity"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".activities.RetrofitActivity"
+                  android:screenOrientation="portrait"/>
 
         <!--友盟配置-->
         <meta-data android:value="5790da64e0f55a1beb000972" android:name="UMENG_APPKEY"></meta-data>

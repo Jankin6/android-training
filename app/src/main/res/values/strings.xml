@@ -1,3 +1,23 @@
 <resources>
     <string name="app_name">android-training</string>
+    <!-- 下拉刷新 -->
+    <string name="pull_to_refresh">下拉可以刷新</string>
+    <string name="release_to_refresh">释放立即刷新</string>
+    <string name="refreshing">正在刷新…</string>
+    <string name="not_updated_yet">暂未更新过</string>
+    <string name="updated_at">上次更新于%1$s前</string>
+    <string name="updated_just_now">刚刚更新</string>
+    <string name="time_error">时间有问题</string>
+
+
+    <!-- 左侧菜单 -->
+    <string name="left_menu_home">首页</string>
+    <string name="left_menu_animator">动画篇</string>
+    <string name="left_menu_custom_view">自定义View</string>
+    <string name="left_menu_refresh">下拉刷新</string>
+    <string name="left_status_bar">沉浸式状态栏</string>
+    <string name="left_menu_network">网络操作</string>
+    <string name="left_menu_image">图片处理</string>
+    <string name="left_menu_map">百度高德地图</string>
+    <string name="left_menu_thread">多线程</string>
 </resources>
