@@ -7,6 +7,9 @@ package com.wangjj.android_training.reflection;
 public class Animal {
     protected String name;
     protected String color;
+    protected String phone;
+    public String phone2;
+
 
     public String getName() {
         return name;

@@ -5,9 +5,6 @@ apply plugin: 'com.neenbedankt.android-apt'
 apply plugin: 'org.greenrobot.greendao'
 
 
-Properties prop = new Properties();
-prop.load(new FileInputStream(file("../signing.properties")))
-
 // 需要生成新表时打开
 //greendao {
 //    schemaVersion 4
@@ -16,14 +13,6 @@ prop.load(new FileInputStream(file("../signing.properties")))
 //}
 
 android {
-    signingConfigs {
-        release {
-            keyAlias prop['KEY_ALIAS']
-            keyPassword prop['KEY_PASSWORD']
-            storeFile file(prop['KEYSTORE_FILEPATH'])
-            storePassword prop['STORE_PASSWORD']
-        }
-    }
     compileSdkVersion 25
     buildToolsVersion '25.0.0'
     defaultConfig {
@@ -46,13 +35,13 @@ android {
     }
 
     buildTypes {
-        release {
-            minifyEnabled true
-            zipAlignEnabled true
-            shrinkResources true
-            signingConfig signingConfigs.release
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
+//        release {
+//            minifyEnabled true
+//            zipAlignEnabled true
+//            shrinkResources true
+//            signingConfig signingConfigs.release
+//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+//        }
         debug {
             minifyEnabled false
             zipAlignEnabled false

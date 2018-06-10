@@ -14,7 +14,7 @@ public class ReflectionTest {
     public static void main(String[] args){
 
         // 获取class对象的三种方式
-        Class clazz = Dog.class;
+
 
         Dog dog = new Dog("小黄");
         Class clazz2 = dog.getClass();
@@ -25,6 +25,57 @@ public class ReflectionTest {
             e.printStackTrace();
         }
 
+        Class clazz = Dog.class;
+
+        System.out.println("**********************所有公有构造方法*********************************");
+        Constructor[] conArray = clazz.getConstructors();
+        for(Constructor c : conArray){
+            System.out.println(c);
+        }
+
+
+        System.out.println("************所有的构造方法(包括：私有、受保护、默认、公有)***************");
+        conArray = clazz.getDeclaredConstructors();
+        for(Constructor c : conArray){
+            System.out.println(c);
+        }
+
+        System.out.println("*****************获取公有、无参的构造方法*******************************");
+        try {
+            Constructor con = clazz.getConstructor(null);
+            System.out.println(con);
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("******************获取私有构造方法，并调用*******************************");
+        try {
+            Constructor con = clazz.getDeclaredConstructor(int.class);
+            //调用构造方法
+            con.setAccessible(true);// 忽略掉访问修饰符
+            Dog dog1 = (Dog) con.newInstance(100);
+            System.out.println(con);
+            System.out.println("忠诚度："+ dog1.getLoyalty());
+
+            Field field = clazz.getDeclaredField("loyalty");
+            field.setAccessible(true);
+            field.set(dog1, 60);
+            System.out.println("忠诚度："+ dog1.getLoyalty());
+
+
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        }
+
+
         // 通过class对象构造目标类型对象
         try {
             // 这里需要传递参数的类型
@@ -33,7 +84,7 @@ public class ReflectionTest {
             System.out.println(mydog.getName());
 
             // 当你通过反射获取到 Constructor、Method、Field 后，在反射调用之前将此对象的 accessible 标志设置为 true，以此来提升反射速度。值为 true 则指示反射的对象在使用时应该取消 Java 语言访问检查。
-            Method method = clazz2.getDeclaredMethod("setWeight", int.class);
+            Method method = clazz.getDeclaredMethod("setWeight", int.class);
             method.setAccessible(true);
             method.invoke(mydog, 2);
             System.out.println(mydog.getWeight());

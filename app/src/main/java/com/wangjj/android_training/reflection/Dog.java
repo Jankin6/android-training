@@ -1,18 +1,28 @@
 package com.wangjj.android_training.reflection;
 
-import android.view.View;
-
 /**
  * Created by wangjianjun on 17/4/1.
  */
 
-public class Dog extends Animal implements View.OnClickListener{
-    public int loyalty;
+public class Dog extends Animal {
+    private int loyalty;
     private int weight;
 
-    public Dog(String name){
-       super.name = name;
+
+
+    private Dog(int loyalty){
+        this.loyalty = loyalty;
+
     }
+
+    public Dog(){
+
+    }
+
+    public Dog(String name){
+       this.name = name;
+    }
+
 
     public int getLoyalty() {
         return loyalty;
@@ -30,8 +40,4 @@ public class Dog extends Animal implements View.OnClickListener{
         this.weight = weight;
     }
 
-    @Override
-    public void onClick(View v) {
-
-    }
 }
