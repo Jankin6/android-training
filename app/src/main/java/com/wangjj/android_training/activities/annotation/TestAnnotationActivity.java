@@ -7,25 +7,27 @@ import android.widget.TextView;
 
 import com.wangjj.android_training.R;
 import com.wangjj.android_training.annotation.ContentView;
-import com.wangjj.android_training.annotation.InjectView;
+import com.wangjj.android_training.annotation.BindView;
 import com.wangjj.android_training.annotation.ViewInjectUtil;
-
 
 
 @ContentView(R.layout.activity_annotation)
 public class TestAnnotationActivity extends AppCompatActivity {
-    @InjectView(R.id.tv)
-    TextView mTextView;
+
+    @BindView(R.id.tv1)
+    TextView mTextView1;
+    @BindView(R.id.tv2)
+    TextView mTextView2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ViewInjectUtil.inject(this);
-        mTextView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-            }
-        });
+//        mTextView1.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//            }
+//        });
 
     }
 
